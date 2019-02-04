@@ -20,16 +20,22 @@
 
 
 /* Transition Effects */
+/* This nav with an anchor tag has an id of gameLinks that uses the said styles 
+to change the positioning, color of the text and the transitions of the text   */
 nav#gameLinks a {
     position: relative;
     color: white;
     transition: 0.5s;
 }
 
+/* This makes it so that when you hover over the 
+specific subject in the nav the text will change colors */
 nav#gameLinks a:hover {
     color: rgb(255, 194, 99);
 }
 
+/* This makes it so that the specific subject hovered over 
+will then get an underlining of the selected subject with transitions, positioning, and opacity. */
 nav#gameLinks a::after {
     content: "";
     position: absolute;
@@ -49,10 +55,77 @@ nav#gameLinks a:hover::after {
 }
 
 /* Sprite Styles */
-
 div#sprite {
     position: absolute;
 }
 
+/* This is the code to make sure the actual image and animation 
+directions are in the right place and functioning correctly specifically for the bat in the animation. */
+div#bat {
+    width: 40px;
+    height: 50px;
+    top: 100px;
+    left: -50px;
+    background: url(paa_bat.png)left/center cover no-repeat;
+    animation: playSprite 2s 8s steps(39) infinite, flyRight 3.5s 2s linear infinite;
+}
+
+/* This is the code to make sure the actual image and animation 
+directions are in the right place and functioning correctly specifically for the butterfly in the animation. */
+div#butterfly {
+    width: 35px;
+    height: 35px;
+    top: 60px;
+    left: -50px;
+    background: url(paa_bfly.png)left center/cover no-repeat;
+    animation: playSprite 1s 3s steps(33) infinite, flyRight 6s 2s linear infinite;
+    transition: cubic-bezier(0, 1, 0.73, 0);
+}
+
+/* This is the code to make sure the actual image and animation 
+directions are in the right place and functioning correctly specifically for the fox in the animation. */
+div#fox {
+    width: 280px;
+    height: 260px;
+    bottom: 10px;
+    top: 10px;
+    background: url(paa_fox.png)left center/ cover no-repeat;
+    animation: playSprite 3.5s 4s steps(27) infinite; 
+}
 
 /* Animation Styles */
+/* This makes the key frames for everything that has to do with playSprite
+are placed on the actual page to be seen first before 
+making the said animatios come to life. */
+@keyframes playSprite {
+    100% {
+        background-position: right center;
+    }
+}
+
+/* This keyframe is used to grab both the animations that are supposed 
+to look like they fly across the screen are actually animated properly 
+to look correct and transition perfectly from left to right over and over */
+@keyframes flyRight {
+
+    25% {
+        top: 150px;
+    }
+
+    50% {
+        top: 55px;
+    }
+
+    65% {
+        top: 120px;
+    }
+
+    90% {
+        top: 50px;
+    }
+
+    100% {
+        top: 80px;
+        left: 100%
+    }
+}
